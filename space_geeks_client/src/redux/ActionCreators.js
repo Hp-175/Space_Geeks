@@ -359,7 +359,7 @@ export const postTheory = (image, Information, credits,title) => (dispatch) => {
         throw errmess;
     })
     .then(response => response.json())
-    .then(response => dispatch(addTheories(response)))
+    .then(response => dispatch(fetchTheories()))
     .catch(error => {alert('Your data could not be posted\nError: '+ error.message); })
 }
 

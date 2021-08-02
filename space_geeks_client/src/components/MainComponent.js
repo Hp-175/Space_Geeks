@@ -45,7 +45,7 @@ const mapDispatchToProps = (dispatch) => ({
     postAchievement: (image, Information, credits,title) => dispatch(postAchievement(image, Information, credits,title)),
     postFact: (image, Information, credits,title) => dispatch(postFact(image, Information, credits,title)),
     postTheory: (image, Information, By,title) => dispatch(postTheory(image, Information, By,title)),
-    putAchievement: (image, Information, credits,title,_ID) => dispatch(putAchievement(image, Information,title, credits,_ID)),
+    putAchievement: (image, Information, credits,title,_ID) => dispatch(putAchievement(image, Information, credits,title,_ID)),
     putFact: (image, Information, credits,title,_ID) => dispatch(putFact(image, Information, credits,title,_ID)),
     putTheory: (image, Information, By,title,_ID) => dispatch(putTheory(image, Information, By,title,_ID)),
     deleteAchievement: (_ID) => dispatch(deleteAchievement(_ID)),

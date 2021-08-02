@@ -132,10 +132,11 @@ SpaceAchievmentRouter.route('/:AchivementId/comments/:commentId')
     .catch((err)=>next(err));
 })
 .post(cors.corsWithOptions,authenticate.verifyUser,(req,res,next)=>{
+    
     SpaceAchievements.findById(req.params.AchivementId)
     .then((Achievement)=>{
         req.body.username=req.user.username;
-        Achievement.comments.push(req.body);
+        Achievement.Comments.push(req.body);
         Achievement.save()
         .then((resp)=>{
             res.statusCode=200;
@@ -153,12 +154,13 @@ SpaceAchievmentRouter.route('/:AchivementId/comments/:commentId')
 .delete(cors.corsWithOptions,authenticate.verifyUser,(req,res,next)=>{
     SpaceAchievements.findById(req.params.AchivementId)
     .then((SpaceAchievementfound)=>{
-        var comment=SpaceAchievementfound.comments.find(({_id})=>req.params.commentId==_id);
-        const ind=SpaceAchievementfound.comments.indexOf(comment);
+        var comment=SpaceAchievementfound.Comments.find(({_id})=>req.params.commentId==_id);
+        
+        const ind=SpaceAchievementfound.Comments.indexOf(comment);
         
             if(ind>-1&&comment.username===req.user.username)
             {
-                SpaceAchievementfound.comments.splice(ind,1);
+                SpaceAchievementfound.Comments.splice(ind,1);
                 SpaceAchievementfound.save()
                 .then((resp)=>{
                     res.statusCode=200;

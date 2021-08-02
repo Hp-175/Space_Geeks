@@ -135,7 +135,7 @@ FactRouter.route('/:FactId/comments/:commentId')
     Facts.findById(req.params.FactId)
     .then((Fact)=>{
         req.body.username=req.user.username;
-        Fact.comments.push(req.body);
+        Fact.Comments.push(req.body);
         Fact.save()
         .then((resp)=>{
             res.statusCode=200;
@@ -153,12 +153,12 @@ FactRouter.route('/:FactId/comments/:commentId')
 .delete(cors.corsWithOptions,authenticate.verifyUser,(req,res,next)=>{
     Facts.findById(req.params.FactId)
     .then((Fact)=>{
-        var comment=Fact.comments.find(({_id})=>req.params.commentId==_id);
-        const ind=Fact.comments.indexOf(comment);
+        var comment=Fact.Comments.find(({_id})=>req.params.commentId==_id);
+        const ind=Fact.Comments.indexOf(comment);
         
             if(ind>-1&&comment.username===req.user.username)
             {
-                Fact.comments.splice(ind,1);
+                Fact.Comments.splice(ind,1);
                 Fact.save()
                 .then((resp)=>{
                     res.statusCode=200;

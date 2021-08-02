@@ -95,7 +95,8 @@ class SpaceGeeks extends Component{
     });
 
     render(){
-        if (this.props.data.isLoading) {
+        
+        if (this.props.data.isLoading||this.props.specific==null||this.props.specific.length==0) {
             return(
                 
                 <div className="container">
@@ -116,10 +117,10 @@ class SpaceGeeks extends Component{
                 </div>
             );
         }
-        else
+        else if(this.props.specific)
         {
             return (
-                    <div>
+                    <div className="marg">
                         <this.postContent/>
                         <div className="alignment">
                             {this.MainPage}

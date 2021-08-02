@@ -136,7 +136,10 @@
   .Dtitle{
     font-family:'Cabin',sans-serif ;
   }
-  
+  .marg{
+    width: 92%;
+    margin-left: 4%;
+  }
 @media only screen and (min-width : 320px) {
     .card {
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

@@ -135,7 +135,7 @@ FacinatingTheoryRouter.route('/:FacinatingTheoryId/comments/:commentId')
     FacinatingTheorys.findById(req.params.FacinatingTheoryId)
     .then((FacinatingTheory)=>{
         req.body.username=req.user.username;
-        FacinatingTheory.comments.push(req.body);
+        FacinatingTheory.Comments.push(req.body);
         FacinatingTheory.save()
         .then((resp)=>{
             res.statusCode=200;
@@ -153,12 +153,12 @@ FacinatingTheoryRouter.route('/:FacinatingTheoryId/comments/:commentId')
 .delete(cors.corsWithOptions,authenticate.verifyUser,(req,res,next)=>{
     FacinatingTheorys.findById(req.params.FacinatingTheoryId)
     .then((FacinatingTheory)=>{
-        var comment=FacinatingTheory.comments.find(({_id})=>req.params.commentId==_id);
-        const ind=FacinatingTheory.comments.indexOf(comment);
+        var comment=FacinatingTheory.Comments.find(({_id})=>req.params.commentId==_id);
+        const ind=FacinatingTheory.Comments.indexOf(comment);
         
             if(ind>-1&&comment.username===req.user.username)
             {
-                FacinatingTheory.comments.splice(ind,1);
+                FacinatingTheory.Comments.splice(ind,1);
                 FacinatingTheory.save()
                 .then((resp)=>{
                     res.statusCode=200;
