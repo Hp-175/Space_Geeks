@@ -5,18 +5,18 @@ import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 import './style.css';
 
-function RenderAchievementItem({ achievement }) {
+function RenderItem({ info,name }) {
     return(
         <div className="card">
-            <Link className="link" to={`/Space-Achievement/${achievement._id}`} >
-                <img width="100%" src={baseUrl+'images/'+achievement.image} alt={achievement.image} />
-                <div className="capt"><span className="bottom-center">{achievement.title}</span></div>
+            <Link className="link" to={`/${name}/${info._id}`} >
+                <img width="100%" src={baseUrl+'images/'+info.image} alt={info.image} />
+                <div className="capt"><span className="bottom-center">{info.title}</span></div>
             </Link>
         </div>
     );
 }
 
-class SpaceAchievement extends Component{
+class SpaceGeeks extends Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -25,7 +25,7 @@ class SpaceAchievement extends Component{
         };
         this.toggleModal = this.toggleModal.bind(this);
         this.handlePost=this.handlePost.bind(this);
-        this.postAchievement=this.postAchievement.bind(this);
+        this.postContent=this.postContent.bind(this);
     }
     toggleModal() {
         this.setState({
@@ -41,25 +41,22 @@ class SpaceAchievement extends Component{
             this.state.selectedFile,
             this.state.selectedFile.name
         );
-        
-        this.props.postImage(formData,'Achievement',this.information.value,this.credits.value,this.title.value);
+        this.props.postImage(formData,this.props.where,this.information.value,this.credits.value,this.title.value);
         event.preventDefault();
     }
 
     onFileChange = event => {
-
-        this.setState({ selectedFile: event.target.files[0] });
-        
+            this.setState({ selectedFile: event.target.files[0] });
         };
 
-    postAchievement=()=>{
+    postContent=()=>{
         return(
             <div>
                 <Button outline onClick={this.toggleModal}>
-                    Post Space Achievement
+                   {this.props.what}
                 </Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader toggle={this.toggleModal}>Space Achievement</ModalHeader>
+                    <ModalHeader toggle={this.toggleModal}>{this.props.titl}</ModalHeader>
                     <ModalBody>
                         <Form onSubmit={this.handlePost}>
                             <FormGroup>
@@ -89,32 +86,32 @@ class SpaceAchievement extends Component{
             </div>
         );
     }
-    achievementre = this.props.achievements.achievements.map((achievement) => {
+    MainPage = this.props.specific.map((info) => {
         return (
-            <div  key={achievement._id}>
-                <RenderAchievementItem achievement={achievement} />
+            <div  key={info._id}>
+                <RenderItem info={info} name={this.props.name} />
             </div>
         );
     });
 
     render(){
-        if (this.props.achievements.isLoading) {
+        if (this.props.data.isLoading) {
             return(
                 
                 <div className="container">
                     <div className="row">
-                        <this.postAchievement/>
+                        <this.postContent/>
                         <Loading />
                     </div>
                 </div>
             );
         }
-        else if (this.props.achievements.errMess) {
+        else if (this.props.data.errMess) {
             return(
                 <div>
                     <div>
-                        <this.postAchievement/>
-                        <h4>{this.props.achievements.errMess}</h4>
+                        <this.postContent/>
+                        <h4>{this.props.data.errMess}</h4>
                     </div>
                 </div>
             );
@@ -123,9 +120,9 @@ class SpaceAchievement extends Component{
         {
             return (
                     <div>
-                        <this.postAchievement/>
+                        <this.postContent/>
                         <div className="alignment">
-                            {this.achievementre}
+                            {this.MainPage}
                         </div>
                     </div>
             );
@@ -133,4 +130,4 @@ class SpaceAchievement extends Component{
     } 
 }
 
-export default SpaceAchievement;
+export default SpaceGeeks;

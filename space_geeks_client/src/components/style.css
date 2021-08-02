@@ -136,6 +136,7 @@
   .Dtitle{
     font-family:'Cabin',sans-serif ;
   }
+  
 @media only screen and (min-width : 320px) {
     .card {
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -163,7 +164,6 @@
       }
       .cardST {
         margin-top: 3%;
-        margin-left: 1%;
         align-content:left;
         text-align: left;
         position: relative;
@@ -191,15 +191,7 @@
         margin-top: 3%;
         position: relative;
       }
-      .another{
-        width: 100%;
-      }
-      .cardST {
-        margin-top: 3%;
-        align-content:left;
-        text-align: left;
-        position: relative;
-      }
+      
 }
 @media only screen and (min-width :768px) {
     .card {
@@ -223,17 +215,6 @@
         margin-top: 3%;
         position: relative;
       }
-      .another{
-        width: 48%;
-        float: left;
-      }
-      .cardST {
-        padding-left: 50%;
-        margin-top: 1%;
-        align-content: left;
-        text-align: justify;
-        position: relative;
-      }
 }
 @media only screen and (min-width :1025px) {
   .card {
@@ -253,15 +234,6 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px;
-    position: relative;
-  }
-  .another{
-    width: 60%;
-  }
-  .cardST {
-    padding-left: 62%;
-    align-content: left;
-    text-align: justify;
     position: relative;
   }
 }

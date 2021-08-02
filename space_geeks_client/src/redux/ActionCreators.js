@@ -325,12 +325,12 @@ export const postFact = (image, Information, credits,title) => (dispatch) => {
         alert('Your data could not be posted\nError: '+ error.message); })
 }
 
-export const postTheory = (image, Information, By,title) => (dispatch) => {
+export const postTheory = (image, Information, credits,title) => (dispatch) => {
 
     const newPost = {
         image: image,
         Information: Information,
-        By: By,
+        By: credits,
         title:title
     }
     const bearer = 'Bearer ' + localStorage.getItem('token');
@@ -360,8 +360,7 @@ export const postTheory = (image, Information, By,title) => (dispatch) => {
     })
     .then(response => response.json())
     .then(response => dispatch(addTheories(response)))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Your data could not be posted\nError: '+ error.message); })
+    .catch(error => {alert('Your data could not be posted\nError: '+ error.message); })
 }
 
 export const putAchievement = (image, Information, credits,title,_ID) => (dispatch) => {
@@ -1049,7 +1048,7 @@ export const postImage=(formadata,func,information,credits,title)=>(dispatch)=>{
         else if(func==='Fact')
         dispatch(postFact(response.file,information,credits,title));
         else
-        dispatch(postTheory(response.file,information,credits,title))
+        dispatch(postTheory(response.file,information,credits,title));
     })
     .catch(error => {alert('Error: '+ error.message);
         dispatch(Set_default());

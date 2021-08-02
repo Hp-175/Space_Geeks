@@ -27,7 +27,7 @@ class RenderData extends Component{
     
     handlePost(event){
         this.toggleModal();
-        this.props.editData(this.props.data.image,this.information.value,this.title.value,this.credits.value,this.props.data._id);
+        this.props.editData(this.props.data.image,this.information.value,this.credits.value,this.title.value,this.props.data._id);
         event.preventDefault();
     }
     handleChangeEvent(val) {
@@ -36,7 +36,7 @@ class RenderData extends Component{
     render()
     {
         var fav;
-        var favourite=this.props.favorite.favourite_achievements;
+        var favourite=this.props.favorite;
         
         if(favourite.length==0)
         fav=false;
@@ -49,8 +49,8 @@ class RenderData extends Component{
             fav=true;
         }
         return(
-            <div>
-                <div className="another">
+            <div className="row">
+                <div className="col-12 col-lg-8">
                     <div className="cardSp">
                         <img className="imgWidth" src={baseUrl +'images/'+ this.props.data.image} alt={this.props.data.image} />
                         <div>
@@ -86,8 +86,10 @@ class RenderData extends Component{
                                                     </FormGroup>
                                                     <FormGroup>
                                                         <Label htmlFor="credits">Credits</Label>
+                                                        {this.props.place==='Facinating-Theory'?<Input type="text" id="credits" name="credits" onChange={()=>{this.handleChangeEvent(this.props.data.By);}} defaultValue={this.props.data.By}
+                                                            innerRef={(input) => this.credits = input}  />:
                                                         <Input type="text" id="credits" name="credits" onChange={()=>{this.handleChangeEvent(this.props.data.credits);}} defaultValue={this.props.data.credits}
-                                                            innerRef={(input) => this.credits = input}  />
+                                                            innerRef={(input) => this.credits = input}  />}
                                                     </FormGroup>
                                                     <Button type="submit" value="submit" color="primary">Post</Button>
                                                 </Form>
@@ -102,14 +104,16 @@ class RenderData extends Component{
                         </div>
                     </div>
                 </div>
-                <div className="cardST">
+                <div className="col-12 col-lg-4">
                     <div>
+                        <br />
                         {this.props.data.Information}
                         <br /><br />
                         <div className="foot">
-                        By : {this.props.data.username}
-                        <br/>
-                        Credit : {this.props.data.credits}</div>
+                            By : {this.props.data.username}
+                            <br/>
+                            Credit : {this.props.data.credits}{this.props.data.By}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -123,6 +127,7 @@ class RenderComments extends Component {
         }
 
     render(){
+        
         if (this.props.comments !== null&&this.props.comments.length!==0)
         {
             return(
@@ -152,7 +157,7 @@ class RenderComments extends Component {
         }
         else
             return(
-                <div>No comments yet</div>
+                <div>No comments yet<br/><br/></div>
             );
         }
     
@@ -248,7 +253,7 @@ else if (props.data != null)
                     <hr />
                 </div>
             </div>
-            <div className="row">
+            <div>
                 <RenderData data={props.data}
                     favorite={props.favorite}
                     postFavourite={props.postFavourite}
@@ -260,10 +265,10 @@ else if (props.data != null)
             </div>
             <br/>
             
-            <div className="bg-light col-12">
+            <div className="bg-light">
                 <CommentForm dataId={props.data._id} postComment={props.postComment}/>
                 <hr />
-                <RenderComments dataId={props.data._id} comments={props.data.comments} deleteComment={props.deleteComment}/>
+                <RenderComments dataId={props.data._id} comments={props.data.Comments} deleteComment={props.deleteComment}/>
             </div>
         </div>
     );

@@ -41,7 +41,7 @@ const SpaceAchievementsSchema=new Schema({
         type:String,
         default:''
     },
-    comments:[Comment]
+    Comments:[Comment]
 },
 {
     timestamps:true

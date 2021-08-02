@@ -60,12 +60,12 @@ class Header extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/Interesting-Facts">
+                                    <NavLink className="nav-link" to="/Interesting-Fact">
                                         Interesting Facts
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/Facinating-Theories">
+                                    <NavLink className="nav-link" to="/Facinating-Theory">
                                         Facinating Theories
                                     </NavLink>
                                 </NavItem>
