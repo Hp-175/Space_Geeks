@@ -113,6 +113,42 @@
     color: black;
   }
 
+  .dropdownH {
+    display: none;
+    float:right;
+    margin-right: 90%;
+    position: relative;
+    right: 0.4em;
+  }
+  
+  .dropdown-contentH {
+    position: absolute;
+    margin-top: 0px;
+    background-color: #ccd6e4;
+    min-width: 160px;
+    overflow: auto;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dbtnH:hover+.dropdownH{
+    display: block;
+  }
+  .dropdownH:hover{
+    display: block;
+  }
+  .dropdown-contentH span {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+  }
+
+  .dropdownH span:hover {
+    background-color: #5d58a0;
+    color: white;
+  }
+
   .overAll{
     margin-left: 10px;
   }
@@ -139,6 +175,12 @@
   .marg{
     width: 92%;
     margin-left: 4%;
+    margin-top: 2%;
+  }
+  .corner{
+    position:absolute;
+    margin-left: 92%;
+    margin-top: 2%;
   }
 @media only screen and (min-width : 320px) {
     .card {
@@ -232,6 +274,7 @@
     column-count: 3;
     column-gap: 70px;
     break-inside: avoid;
+    position: relative;
   }
   .cardSp {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

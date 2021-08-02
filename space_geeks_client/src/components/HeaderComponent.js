@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
     Button, Modal, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
+import './style.css';
 
 class Header extends Component {
 
@@ -48,10 +49,6 @@ class Header extends Component {
                 <Navbar dark expand="md">
                     <div className="container">
                         <NavbarToggler onClick={this.toggleNav} />
-                        <NavbarBrand className="mr-auto" href="/">
-                            <img src={baseUrl+'images/logo.jfif'} height="30" width="41"
-                                alt="Ristorante Con Fusion" />
-                        </NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                                 <NavItem>
@@ -70,9 +67,22 @@ class Header extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/Favorites">
+                                    <NavLink className="nav-link dbtnH" to="/Favorites">
                                         Favorites
                                     </NavLink>
+                                    <div className="dropdownH">
+                                        <div className="dropdown-contentH">
+                                            <Link to={'/Favourite-Achievements'} className="link">
+                                                <span>Favourite SpaceAchievement</span>
+                                            </Link>
+                                            <Link to={'/Favourite-Facts'} className="link">
+                                                <span>Favourite Facts</span>
+                                            </Link>
+                                            <Link to={'/Favourite-Theories'} className="link">
+                                                <span>Favourite Theories</span>
+                                            </Link>
+                                        </div>
+                                    </div>
                                 </NavItem>
                                 
                             </Nav>

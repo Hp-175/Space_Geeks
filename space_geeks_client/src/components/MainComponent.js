@@ -19,6 +19,7 @@ import { matchPath } from 'react-router'
 import Header from './HeaderComponent';
 import HomeComponent from './HomeComponent';
 import DetailsComponent from './DetailsComponent';
+import Favourite  from './Favourite';
 import { action } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -80,6 +81,7 @@ const mapDispatchToProps = (dispatch) => ({
       this.props.fetchFavouriteAchievements();
       this.props.fetchFavouriteFacts();
       this.props.fetchFavouriteTheories();
+      document.title="Space Geeks";
     }
     
     render() {
@@ -152,6 +154,15 @@ const mapDispatchToProps = (dispatch) => ({
             />
         );
       }
+      const FavAchievement = () => {
+        return(
+          <Favourite 
+          favorite={this.props.favouriteAchievements.favourite_achievements}
+          deleteFavourite={this.props.deleteFavouriteAchievement}
+          name={"Space-Achievement"}
+          />
+        );
+      }
       const HomeComponentAchievement = () => {
         return(
           <HomeComponent 
@@ -210,6 +221,7 @@ const mapDispatchToProps = (dispatch) => ({
               <Route exact path="/Space-Achievement/:achievementId" component={() => <AchievementWithId match={this.props.match}/>} />
               <Route exact path="/Interesting-Fact/:factId" component={() => <FactWithId match={this.props.match}/>} />
               <Route exact path="/Facinating-Theory/:theoryId" component={() => <TheoryWithId match={this.props.match}/>} />
+              <Route exact path="/Favourite-Achievements" component={()=><FavAchievement/>}/>
               <Redirect to="/Space-Achievement" />
             </Switch>
         </div>
