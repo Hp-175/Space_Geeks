@@ -20,8 +20,6 @@ import Header from './HeaderComponent';
 import HomeComponent from './HomeComponent';
 import DetailsComponent from './DetailsComponent';
 import Favourite  from './Favourite';
-import { action } from 'react-redux-form';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const mapStateToProps = state => {
     return {
@@ -163,6 +161,26 @@ const mapDispatchToProps = (dispatch) => ({
           />
         );
       }
+
+      const FavFact = () => {
+        return(
+          <Favourite 
+          favorite={this.props.favouriteFacts.favourite_facts}
+          deleteFavourite={this.props.deleteFavouriteFact}
+          name={"Favourite-Facts"}
+          />
+        );
+      }
+
+      const FavTheory = () => {
+        return(
+          <Favourite 
+          favorite={this.props.favouriteTheories.favourite_theories}
+          deleteFavourite={this.props.deleteFavouriteTheory}
+          name={"Favourite-Theories"}
+          />
+        );
+      }
       const HomeComponentAchievement = () => {
         return(
           <HomeComponent 
@@ -211,7 +229,8 @@ const mapDispatchToProps = (dispatch) => ({
       return (
         <div>
           <Header auth={this.props.auth} 
-            loginUser={this.props.loginUser} 
+            loginUser={this.props.loginUser}
+            signupUser={this.props.signupUser}
             logoutUser={this.props.logoutUser} 
             />   
           <Switch>
@@ -222,6 +241,8 @@ const mapDispatchToProps = (dispatch) => ({
               <Route exact path="/Interesting-Fact/:factId" component={() => <FactWithId match={this.props.match}/>} />
               <Route exact path="/Facinating-Theory/:theoryId" component={() => <TheoryWithId match={this.props.match}/>} />
               <Route exact path="/Favourite-Achievements" component={()=><FavAchievement/>}/>
+              <Route exact path="/Favourite-Facts" component={()=><FavFact/>}/>
+              <Route exact path="/Favourite-Theories" component={()=><FavTheory/>}/>
               <Redirect to="/Space-Achievement" />
             </Switch>
         </div>

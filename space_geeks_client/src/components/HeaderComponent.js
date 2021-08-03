@@ -12,11 +12,14 @@ class Header extends Component {
         super(props);
         this.state = {
             isNavOpen: false,
-            isModalOpen: false
+            isModalOpen: false,
+            isModalOpen2:false
         };
         this.toggleNav = this.toggleNav.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
+        this.toggleModal2 = this.toggleModal2.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
+        this.handleSignup=this.handleSignup.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
     }
 
@@ -39,6 +42,19 @@ class Header extends Component {
 
     }
 
+    toggleModal2() {
+        this.setState({
+            isModalOpen2: !this.state.isModalOpen2
+        });
+    }
+
+    handleSignup(event) {
+        this.toggleModal2();
+        this.props.signupUser(this.username.value,this.password.value,this.firstname.value,this.lastname.value);
+        event.preventDefault();
+
+    }
+
     handleLogout() {
         this.props.logoutUser();
     }
@@ -47,10 +63,15 @@ class Header extends Component {
         return(
             <React.Fragment>
                 <Navbar dark expand="md">
-                    <div className="container">
+                    <NavbarBrand className="mr-auto img">
+                        <img src={baseUrl+'images/logo3.png'} width="70"
+                        alt="Space Geeks" />
+                    </NavbarBrand>
+                    <div  className="page">
                         <NavbarToggler onClick={this.toggleNav} />
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
+                                
                                 <NavItem>
                                     <NavLink className="nav-link" to="/Space-Achievement">
                                         Space Achievement
@@ -89,23 +110,40 @@ class Header extends Component {
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
                                     { !this.props.auth.isAuthenticated ?
-                                        <Button outline onClick={this.toggleModal}>
-                                            <span className="fa fa-sign-in fa-lg"></span> Login
+                                        <div className="login" onClick={this.toggleModal}>
+                                            Login
                                             {this.props.auth.isFetching ?
                                                 <span className="fa fa-spinner fa-pulse fa-fw"></span>
                                                 : null
                                             }
-                                        </Button>
+                                        </div>
                                         :
                                         <div>
-                                        <div className="navbar-text mr-3">{this.props.auth.user.username}</div>
-                                        <Button outline onClick={this.handleLogout}>
-                                            <span className="fa fa-sign-out fa-lg"></span> Logout
+                                            <span className="usname">{this.props.auth.user.username}</span>
+                                        </div>
+                                    }
+
+                                </NavItem>
+                            </Nav>
+                            <Nav className="ml-2" navbar>
+                                <NavItem>
+                                    { !this.props.auth.isAuthenticated ?
+                                        <div className="signup" onClick={this.toggleModal2}>
+                                            Sign Up
                                             {this.props.auth.isFetching ?
                                                 <span className="fa fa-spinner fa-pulse fa-fw"></span>
                                                 : null
                                             }
-                                        </Button>
+                                        </div>
+                                        :
+                                        <div>
+                                            <div className="logout" onClick={this.handleLogout}>
+                                               Logout
+                                                {this.props.auth.isFetching ?
+                                                    <span className="fa fa-spinner fa-pulse fa-fw"></span>
+                                                    : null
+                                                }
+                                            </div>
                                         </div>
                                     }
 
@@ -129,14 +167,35 @@ class Header extends Component {
                                 <Input type="password" id="password" name="password"
                                     innerRef={(input) => this.password = input}  />
                             </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" name="remember"
-                                    innerRef={(input) => this.remember = input}  />
-                                    Remember me
-                                </Label>
-                            </FormGroup>
                             <Button type="submit" value="submit" color="primary">Login</Button>
+                        </Form>
+                    </ModalBody>
+                </Modal>
+                <Modal isOpen={this.state.isModalOpen2} toggle={this.toggleModal2}>
+                    <ModalHeader toggle={this.toggleModal2}>Sign Up</ModalHeader>
+                    <ModalBody>
+                        <Form onSubmit={this.handleSignup}>
+                            <FormGroup>
+                                <Label htmlFor="username">Username</Label>
+                                <Input type="text" id="username" name="username"
+                                    innerRef={(input) => this.username = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="password">Password</Label>
+                                <Input type="password" id="password" name="password"
+                                    innerRef={(input) => this.password = input}  />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="firstname">First Name</Label>
+                                <Input type="text" id="firstname" name="firstname"
+                                    innerRef={(input) => this.firstname = input}  />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="lastname">First Name</Label>
+                                <Input type="text" id="lastname" name="lastname"
+                                    innerRef={(input) => this.lastname = input}  />
+                            </FormGroup>
+                            <Button type="submit" value="submit" color="success">Sign Up</Button>
                         </Form>
                     </ModalBody>
                 </Modal>

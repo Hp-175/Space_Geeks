@@ -182,6 +182,42 @@
     margin-left: 92%;
     margin-top: 2%;
   }
+  .login{
+    background-color:	#228ea1;
+    color:white;
+    cursor: pointer;
+    padding: 3px 9px;
+    border-radius: 3px;
+  }
+  .login:hover{
+    background-color:#39a6b9 ;
+  }
+  .signup{
+    background-color:	#1b8d4a;
+    color:white;
+    cursor: pointer;
+    padding: 3px 9px;
+    border-radius: 3px;
+  }
+  .signup:hover{
+    background-color:#39aa52 ;
+  }
+  .usname{
+    color:#c9b273 ;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .logout{
+    background-color:	#974343;
+    color:white;
+    cursor: pointer;
+    padding: 3px 9px;
+    border-radius: 3px;
+  }
+  .logout:hover{
+    background-color:#a80d1f ;
+  }
+  
 @media only screen and (min-width : 320px) {
     .card {
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -213,6 +249,10 @@
         text-align: left;
         position: relative;
       }
+      .img{
+        position:absolute;
+        margin-left: 70%;
+      }
 }
 
 @media only screen and (min-width : 420px) {
@@ -236,7 +276,21 @@
         margin-top: 3%;
         position: relative;
       }
-      
+    }
+@media only screen and (min-width :655px)
+{
+  .img{
+    position:absolute;
+    margin-left: 89%;
+    margin-top: 0%;
+  }
+}
+@media only screen and (min-width :1190px)
+{
+  .img{
+    position:absolute;
+    margin-left: 0%;
+  }
 }
 @media only screen and (min-width :768px) {
     .card {

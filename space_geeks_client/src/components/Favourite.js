@@ -53,7 +53,7 @@ class Favourite extends Component{
                 </div>
             );
         }
-        else
+        else if(this.props.favorite.length!=0)
         {
             return (
                     <div className="marg">
@@ -62,6 +62,13 @@ class Favourite extends Component{
                             {this.MainPage}
                         </div>
                     </div>
+            );
+        }
+        else{
+            return(
+                <div style={{margin:"20% 0 0 35%",fontWeight:"700",fontSize:"200%"}}>
+                    No Favourite Post Added
+                </div>
             );
         }
     } 
