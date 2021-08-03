@@ -20,7 +20,7 @@ import Header from './HeaderComponent';
 import HomeComponent from './HomeComponent';
 import DetailsComponent from './DetailsComponent';
 import Favourite  from './Favourite';
-
+import Footer from './FooterComponent';
 const mapStateToProps = state => {
     return {
         achievements:state.achievements,
@@ -228,23 +228,29 @@ const mapDispatchToProps = (dispatch) => ({
       }
       return (
         <div>
-          <Header auth={this.props.auth} 
-            loginUser={this.props.loginUser}
-            signupUser={this.props.signupUser}
-            logoutUser={this.props.logoutUser} 
-            />   
-          <Switch>
-              <Route exact path="/Space-Achievement" component={() => <HomeComponentAchievement/>} />
-              <Route exact path="/Interesting-Fact" component={() => <HomeComponentFact/>} />
-              <Route exact path="/Facinating-Theory" component={() => <HomeComponentTheory/>} />
-              <Route exact path="/Space-Achievement/:achievementId" component={() => <AchievementWithId match={this.props.match}/>} />
-              <Route exact path="/Interesting-Fact/:factId" component={() => <FactWithId match={this.props.match}/>} />
-              <Route exact path="/Facinating-Theory/:theoryId" component={() => <TheoryWithId match={this.props.match}/>} />
-              <Route exact path="/Favourite-Achievements" component={()=><FavAchievement/>}/>
-              <Route exact path="/Favourite-Facts" component={()=><FavFact/>}/>
-              <Route exact path="/Favourite-Theories" component={()=><FavTheory/>}/>
-              <Redirect to="/Space-Achievement" />
+          <div className="out">
+            <Header auth={this.props.auth} 
+              loginUser={this.props.loginUser}
+              signupUser={this.props.signupUser}
+              logoutUser={this.props.logoutUser} 
+              />
+            <Switch>
+                <Route exact path="/Space-Achievement" component={() => <HomeComponentAchievement/>} />
+                <Route exact path="/Interesting-Fact" component={() => <HomeComponentFact/>} />
+                <Route exact path="/Facinating-Theory" component={() => <HomeComponentTheory/>} />
+                <Route exact path="/Space-Achievement/:achievementId" component={() => <AchievementWithId match={this.props.match}/>} />
+                <Route exact path="/Interesting-Fact/:factId" component={() => <FactWithId match={this.props.match}/>} />
+                <Route exact path="/Facinating-Theory/:theoryId" component={() => <TheoryWithId match={this.props.match}/>} />
+                <Route exact path="/Favourite-Achievements" component={()=><FavAchievement/>}/>
+                <Route exact path="/Favourite-Facts" component={()=><FavFact/>}/>
+                <Route exact path="/Favourite-Theories" component={()=><FavTheory/>}/>
+                <Redirect to="/Space-Achievement" />
             </Switch>
+            </div>
+          <br/>
+          <div className="foot">
+            <Footer/>
+          </div>
         </div>
       );
     }
