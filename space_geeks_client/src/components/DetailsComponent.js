@@ -38,7 +38,7 @@ class RenderData extends Component{
         var fav;
         var favourite=this.props.favorite;
         
-        if(favourite.length==0)
+        if(favourite.length===0)
         fav=false;
         else
         {
@@ -122,9 +122,6 @@ class RenderData extends Component{
 }
 
 class RenderComments extends Component {
-    constructor(props) {
-        super(props);
-        }
 
     render(){
         

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem,
     Button, Modal, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label } from 'reactstrap';
 import { NavLink,Link } from 'react-router-dom';
@@ -62,7 +62,7 @@ class Header extends Component {
     render() {
         return(
             <React.Fragment>
-                <Navbar dark expand="md">
+                <Navbar className="navbar navbar-dark bg-dark" expand="md">
                     <NavbarBrand className="mr-auto img">
                         <img src={baseUrl+'images/logo3.png'} width="70"
                         alt="Space Geeks" />

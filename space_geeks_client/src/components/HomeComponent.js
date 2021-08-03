@@ -50,39 +50,57 @@ class SpaceGeeks extends Component{
         };
 
     postContent=()=>{
+        var img;
+        if(this.props.what==='Post Space Achievement')
+        img='images/Achievement2.jpg';
+        else if(this.props.what==='Post Fact')
+        img='images/Fact.jpg';
+        else
+        img='images/Theory.jpg';
+        const myStyle={
+            backgroundImage:`url(${baseUrl+img}`,
+            backgroundSize: "cover",
+            width:"100%"
+            };
         return(
             <div>
-                <Button outline onClick={this.toggleModal}>
-                   {this.props.what}
-                </Button>
-                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader toggle={this.toggleModal}>{this.props.titl}</ModalHeader>
-                    <ModalBody>
-                        <Form onSubmit={this.handlePost}>
-                            <FormGroup>
-                                <Label htmlFor="title">Title</Label>
-                                <Input type="text" id="title" name="title"
-                                    innerRef={(input) => this.title = input} />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="information">Information</Label>
-                                <Input type="text" id="information" name="information"
-                                    innerRef={(input) => this.information = input}  />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="credits">Credits</Label>
-                                <Input type="text" id="credits" name="credits"
-                                    innerRef={(input) => this.credits = input}  />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="image">Upload image</Label>
-                                <Input type="file" id="image" name="image"
-                                    onChange={this.onFileChange}/>
-                            </FormGroup>
-                            <Button type="submit" value="submit" color="primary">Post</Button>
-                        </Form>
-                    </ModalBody>
-                </Modal>
+                <div className="fixed-bg" style={myStyle}>
+                    <div className="bttnm">
+                        <span className="bttn" onClick={this.toggleModal}>
+                            {this.props.what}
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                        <ModalHeader toggle={this.toggleModal}>{this.props.titl}</ModalHeader>
+                        <ModalBody>
+                            <Form onSubmit={this.handlePost}>
+                                <FormGroup>
+                                    <Label htmlFor="title">Title</Label>
+                                    <Input type="text" id="title" name="title"
+                                        innerRef={(input) => this.title = input} />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label htmlFor="information">Information</Label>
+                                    <Input type="text" id="information" name="information"
+                                        innerRef={(input) => this.information = input}  />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label htmlFor="credits">Credits</Label>
+                                    <Input type="text" id="credits" name="credits"
+                                        innerRef={(input) => this.credits = input}  />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label htmlFor="image">Upload image</Label>
+                                    <Input type="file" id="image" name="image"
+                                        onChange={this.onFileChange}/>
+                                </FormGroup>
+                                <Button type="submit" value="submit" color="primary">Post</Button>
+                            </Form>
+                        </ModalBody>
+                    </Modal>
+                </div>
             </div>
         );
     }
@@ -96,13 +114,15 @@ class SpaceGeeks extends Component{
 
     render(){
         
-        if (this.props.data.isLoading||this.props.specific==null||this.props.specific.length==0) {
+        if (this.props.data.isLoading) {
             return(
                 
-                <div className="container">
-                    <div className="row">
-                        <this.postContent/>
-                        <Loading />
+                <div>
+                    <this.postContent/>
+                    <div className="marg">
+                        <div className="alignment">
+                            <Loading/>
+                        </div>
                     </div>
                 </div>
             );
@@ -120,12 +140,23 @@ class SpaceGeeks extends Component{
         else if(this.props.specific)
         {
             return (
-                    <div className="marg">
+                    <div>
                         <this.postContent/>
-                        <div className="alignment">
-                            {this.MainPage}
+                        <div className="marg" >
+                            <div className="alignment"  >
+                                {this.MainPage}
+                            </div>
                         </div>
                     </div>
+            );
+        }
+        else{
+            return(
+                <div>
+                <this.postContent/>
+                <div style={{margin:"20% 0 0 35%",fontWeight:"700",fontSize:"200%"}}>
+                    No Post Added Yet
+                </div></div>
             );
         }
     } 

@@ -217,8 +217,36 @@
   .logout:hover{
     background-color:#a80d1f ;
   }
+  
+  .fixed-bg {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 600px;
+    margin-top: 8px;
+    color: white;
+  }
+  .fixed-bg .bttn {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .bttn{
+    background-color:	#273f5f;
+    color:white;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 3px;
+  }
+  .bttnm{
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+  .bg-custom{
+    background-color: black;
+  }
   .footer{
-    background-color: #D1C4E9;
+    background-color: #030008;
     margin:0px auto;
     padding: 40px 0px 40px 0px;
   }
@@ -260,6 +288,9 @@
         position:absolute;
         margin-left: 70%;
       }
+      .fixed-bg {
+        min-height: 400px;
+      }
 }
 
 @media only screen and (min-width : 420px) {
@@ -282,6 +313,9 @@
         border-radius: 5px;
         margin-top: 3%;
         position: relative;
+      }
+      .fixed-bg {
+        min-height: 600px;
       }
     }
 @media only screen and (min-width :655px)

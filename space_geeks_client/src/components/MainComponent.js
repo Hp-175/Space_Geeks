@@ -228,12 +228,15 @@ const mapDispatchToProps = (dispatch) => ({
       }
       return (
         <div>
-          <div className="out">
-            <Header auth={this.props.auth} 
-              loginUser={this.props.loginUser}
-              signupUser={this.props.signupUser}
-              logoutUser={this.props.logoutUser} 
-              />
+          <div className="out ">
+            <div style={{position:"fixed",width:"100%",zIndex:"1"}}>
+              <Header auth={this.props.auth} 
+                loginUser={this.props.loginUser}
+                signupUser={this.props.signupUser}
+                logoutUser={this.props.logoutUser} 
+                />
+              </div>
+              <br/><br/>
             <Switch>
                 <Route exact path="/Space-Achievement" component={() => <HomeComponentAchievement/>} />
                 <Route exact path="/Interesting-Fact" component={() => <HomeComponentFact/>} />
