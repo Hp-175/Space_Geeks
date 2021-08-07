@@ -107,7 +107,7 @@ class Header extends Component {
                                 </NavItem>
                                 
                             </Nav>
-                            <Nav className="ml-auto" navbar>
+                            <Nav navbar>
                                 <NavItem>
                                     { !this.props.auth.isAuthenticated ?
                                         <div className="login" onClick={this.toggleModal}>
@@ -191,7 +191,7 @@ class Header extends Component {
                                     innerRef={(input) => this.firstname = input}  />
                             </FormGroup>
                             <FormGroup>
-                                <Label htmlFor="lastname">First Name</Label>
+                                <Label htmlFor="lastname">Last Name</Label>
                                 <Input type="text" id="lastname" name="lastname"
                                     innerRef={(input) => this.lastname = input}  />
                             </FormGroup>
