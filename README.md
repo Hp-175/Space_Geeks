@@ -127,7 +127,7 @@ A Responsive website for space enthusiastic for sharing knowledge. Where users c
     }
 
     ```
-* Install node from here : [(https://nodejs.org/en/]((https://nodejs.org/en/)
+* Install node from here : https://nodejs.org/en/
 
 * open cmd and go to Space_Geeks_Server location and enter,
     ```
@@ -169,8 +169,8 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Contact
 
-Hrushi Patel - [@Hp-175](https://github.com/Hp-175) -  patelhrushi16@gmail.com
-Project Link: [https://github.com/Hp-175/Space_Geeks](https://github.com/Hp-175/Space_Geeks)
+* Hrushi Patel - [@Hp-175](https://github.com/Hp-175) -  patelhrushi16@gmail.com
+* Project Link: [https://github.com/Hp-175/Space_Geeks](https://github.com/Hp-175/Space_Geeks)
 
 [contributors-shield]: https://github.com/Hp-175/Space_Geeks
 [Header-Logout]: images/headerLogedout.png
