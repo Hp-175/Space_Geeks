@@ -75,32 +75,32 @@ A Responsive website for space enthusiastic for sharing knowledge. Where users c
 
 ### Some ScreenShots Of Website
 
- [![Logout Screen Shot][Header-Logout]]
+ [Header-Logout]
  * Header Contains three categories of information and favourite section for each category for each user, with login and signup option.
  * Also a button for posting image and its details such as title, information, credits.
 
-[![Login Screen Shot][Header-Login]]
+[Header-Login]
  * As shown a header after successfull login it shows favourite categories for loged in user. 
 
-[![Product Name Screen Shot][homepage]]
+[homepage]
  * A full view of home page with fix image as background with effect of hiding when page is scrolled up.
 
-[![Posts Screen Shot][posts]]
+[posts]
  * Home page view of each three section where posts are visible.
  * Here title is written on image at bottom center.
 
-[![Details Screen Shot][details]]
+[details]
  * After clicking on image it nevegates to detailed section of image.
  * Here image is displayed as per the screen size along with its title and information. And also at the bottom of the information username of person who has posted image and also credits.
  * At the bottom left of the image by clicking on heart icon any one can remove and add post into his/her favourite list.
  * At the bottom right corner two option edit and delete is there.this option can be used by only the person who owns the post.
 
-[![Commentbox Screen Shot][comments]]
+[comments]
  * At the bottom of the page of each post a comment section exist where people can comment on post.
  * So,here username and date of comment is displayed along with comment.
  * After click on x(cross) symbole person who has entered comment can remove comment.
 
-[![Favourite Screen Shot][favourites]]
+[favourites]
  * Here it displays all the favourite posts of loged in user for each category.
  * By click on heart at the top right corner one can remove post from list of favourites.
 
