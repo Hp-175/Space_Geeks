@@ -15,9 +15,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -172,11 +169,10 @@ Contributions are what make the open source community such an amazing place to b
 * Hrushi Patel - [@Hp-175](https://github.com/Hp-175) -  patelhrushi16@gmail.com
 * Project Link: [https://github.com/Hp-175/Space_Geeks](https://github.com/Hp-175/Space_Geeks)
 
-[contributors-shield]: https://github.com/Hp-175/Space_Geeks
-[Header-Logout]: images/headerLogedout.png
+[Header-Logout]: images/headerLogedout.PNG
 [Header-Login]: images/headerLogedin.jpg
 [posts]: images/homepage.jpg
-[homepage]: images/HomePage.png
+[homepage]: images/HomePage.PNG
 [details]: images/details.jpg
 [comments]: images/commentbox.jpg
 [favourites]: images/favourites.jpg
