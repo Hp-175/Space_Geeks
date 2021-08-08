@@ -74,7 +74,7 @@
 A Responsive website for space enthusiastic for sharing knowledge. Where users can share image, write a blog about it and can also perform edit and delete operation.
 
 ### Some ScreenShots Of Website
-[![Header with logout][Header-Logout]]
+ [! [Header with logout] [Header-Logout]]
  * Header Contains three categories of information and favourite section for each category for each user, with login and signup option.
  * Also a button for posting image and its details such as title, information, credits.
 
