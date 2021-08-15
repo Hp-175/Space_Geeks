@@ -16,6 +16,30 @@
     padding: 1%;
     color: white;
   }
+  .modal-content  {
+    border-radius: 0px !important;
+  }
+  .modal{
+    border-radius: 0px !important;
+  }
+  
+  .modal-header{
+    border-radius: 0px !important;
+    background-color: #343a40!important;
+    color:white;
+  }
+  .modal-header .close {
+    padding: 1rem;
+    color: white;
+  }
+  .modal-header .close:hover {
+    padding: 1rem;
+    color: #a80d1f;
+  }
+  .modal-body{
+    border-radius:0px;
+    background-color: #ccd6e4;
+  }
   .page{
     margin-left: 4%;
     margin-right: 5%;
