@@ -1,7 +1,7 @@
 const express=require('express');
 const cors=require('cors');
 
-const whitelist=['http://localhost:3001','https://localhost:3443','http://Hrushi Patel:3001','http:'];
+const whitelist=['http://localhost:3000','https://localhost:3443','http://Hrushi Patel:3001','https://space-geeks.herokuapp.com/Space-Achievement'];
 var corsOptionsDelegate=(req,callback)=>{
     var corsOptions;
     if(whitelist.indexOf(req.header('Origin'))!==-1)
