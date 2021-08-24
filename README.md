@@ -31,7 +31,7 @@
     <a href="https://github.com/Hp-175/Space_Geeks"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Hp-175/Space_Geeks">View Demo</a>
+    <a href="https://space-geeks.herokuapp.com/Facinating-Theory">View Website</a>
     ·
     <a href="https://github.com/Hp-175/Space_Geeks/issues">Report Bug</a>
     ·
