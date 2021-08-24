@@ -19,7 +19,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/Hp-175/Space_Geeks">
+  <a href="https://space-geeks.herokuapp.com">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -45,6 +45,8 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
+    <li>
+      Live Website : <a href="https://space-geeks.herokuapp.com">https://space-geeks.herokuapp.com/Facinating-Theory<a/>
     <li>
       <a href="#about-the-project">About The Website</a>
       <ul>
