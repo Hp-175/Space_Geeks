@@ -21,11 +21,13 @@ class SpaceGeeks extends Component{
         super(props);
         this.state = {
             isModalOpen: false,
-            selectedFile: null
+            selectedFile: null,
+            isErrorVisible:true
         };
         this.toggleModal = this.toggleModal.bind(this);
         this.handlePost=this.handlePost.bind(this);
         this.postContent=this.postContent.bind(this);
+        this.toggleError=this.toggleError.bind(this);
     }
     toggleModal() {
         this.setState({
@@ -48,7 +50,11 @@ class SpaceGeeks extends Component{
     onFileChange = event => {
             this.setState({ selectedFile: event.target.files[0] });
         };
-
+    toggleError(){
+        this.setState({
+            isErrorVisible: !this.state.isErrorVisible
+        });
+    }
     postContent=()=>{
         var img;
         if(this.props.what==='Post Space Achievement')
@@ -65,6 +71,16 @@ class SpaceGeeks extends Component{
         return(
             <div>
                 <div className="fixed-bg" style={myStyle}>
+                    
+                    {this.props.errormess!=null&&this.isErrorVisible==false
+                    ?
+                        this.setState({
+                            isErrorVisible: !this.state.isErrorVisible
+                            })
+                    :
+                        null
+                    }
+                    {this.isErrorVisible?<div className="alignCenter"><div className="ErrorMess">{this.props.errormess}{'   '}<span className="fa fa-remove cross" onClick={this.toggleError}/></div></div>:null}
                     <div className="bttnm">
                         <span className="bttn" onClick={this.toggleModal}>
                             {this.props.what}
@@ -113,7 +129,6 @@ class SpaceGeeks extends Component{
     });
 
     render(){
-        
         if (this.props.data.isLoading) {
             return(
                 

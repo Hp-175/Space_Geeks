@@ -108,45 +108,39 @@ class Header extends Component {
                                 
                             </Nav>
                             <Nav navbar>
-                                <NavItem>
+                                <NavItem className="over">
                                     { !this.props.auth.isAuthenticated ?
-                                        <div className="login" onClick={this.toggleModal}>
+                                        <span className="login" onClick={this.toggleModal}>
                                             Login
                                             {this.props.auth.isFetching ?
                                                 <span className="fa fa-spinner fa-pulse fa-fw"></span>
                                                 : null
                                             }
-                                        </div>
+                                        </span>
                                         :
-                                        <div>
+                                        <span>
                                             <span className="usname">{this.props.auth.user.username}</span>
-                                        </div>
+                                        </span>
                                     }
-
-                                </NavItem>
-                            </Nav>
-                            <Nav className="ml-2" navbar>
-                                <NavItem>
                                     { !this.props.auth.isAuthenticated ?
-                                        <div className="signup" onClick={this.toggleModal2}>
+                                        <span className="signup" onClick={this.toggleModal2}>
                                             Sign Up
                                             {this.props.auth.isFetching ?
                                                 <span className="fa fa-spinner fa-pulse fa-fw"></span>
                                                 : null
                                             }
-                                        </div>
+                                        </span>
                                         :
-                                        <div>
-                                            <div className="logout" onClick={this.handleLogout}>
+                                        <span>
+                                            <span className="logout" onClick={this.handleLogout}>
                                                Logout
                                                 {this.props.auth.isFetching ?
                                                     <span className="fa fa-spinner fa-pulse fa-fw"></span>
                                                     : null
                                                 }
-                                            </div>
-                                        </div>
+                                            </span>
+                                        </span>
                                     }
-
                                 </NavItem>
                             </Nav>
                         </Collapse>

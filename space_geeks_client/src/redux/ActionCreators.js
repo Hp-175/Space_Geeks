@@ -248,6 +248,10 @@ export const addFavouriteTheories = (favourite) => ({
     payload: favourite
 });
 
+export const ErrorMess = (errmess) => ({
+    type: ActionTypes.ErrorMess,
+    payload: errmess
+});
 
 export const postAchievement = (image, Information, credits,title) => (dispatch) => {
 
@@ -283,8 +287,7 @@ export const postAchievement = (image, Information, credits,title) => (dispatch)
         throw errmess;
     })
     .then(response=>dispatch(fetchAchievements()))
-    .catch(error => { console.log('Post Achievements ', error.message);
-        alert('Your data could not be posted\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('Your data could not be posted')); })
 }
 
 export const postFact = (image, Information, credits,title) => (dispatch) => {
@@ -321,8 +324,7 @@ export const postFact = (image, Information, credits,title) => (dispatch) => {
         throw errmess;
     })
     .then(response=>dispatch(fetchFacts()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Your data could not be posted\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('Your data could not be posted'));})
 }
 
 export const postTheory = (image, Information, credits,title) => (dispatch) => {
@@ -360,7 +362,7 @@ export const postTheory = (image, Information, credits,title) => (dispatch) => {
     })
     .then(response => response.json())
     .then(response => dispatch(fetchTheories()))
-    .catch(error => {alert('Your data could not be posted\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('Your data could not be posted'));})
 }
 
 export const putAchievement = (image, Information, credits,title,_ID) => (dispatch) => {
@@ -397,8 +399,7 @@ export const putAchievement = (image, Information, credits,title,_ID) => (dispat
         throw errmess;
     })
     .then(response => dispatch(fetchAchievements()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Your data could not be posted\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('You are not authourized to edit this post'));})
 }
 
 export const putFact = (image, Information, credits,title,_ID) => (dispatch) => {
@@ -435,8 +436,7 @@ export const putFact = (image, Information, credits,title,_ID) => (dispatch) => 
         throw errmess;
     })
     .then(response => dispatch(fetchFacts()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Your data could not be posted\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('You are not authourized to edit this post'));})
 }
 
 export const putTheory = (image, Information, By,title,_ID) => (dispatch) => {
@@ -473,8 +473,7 @@ export const putTheory = (image, Information, By,title,_ID) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchTheories()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Your comment could not be posted\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('You are not authourized to edit this post'));})
 }
 
 export const deleteAchievement = (_ID) => (dispatch) => {
@@ -504,8 +503,7 @@ export const deleteAchievement = (_ID) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchAchievements()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Error: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('You are not authourized to REMOVE this post'));})
 }
 
 export const deleteFact = (_ID) => (dispatch) => {
@@ -535,8 +533,7 @@ export const deleteFact = (_ID) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchFacts()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Error: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('You are not authourized to REMOVE this post'));})
 }
 
 export const deleteTheory = (_ID) => (dispatch) => {
@@ -566,8 +563,7 @@ export const deleteTheory = (_ID) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchTheories()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Error: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('You are not authourized to REMOVE this post'));})
 }
 
 
@@ -602,8 +598,7 @@ export const postFavouriteAchievement = (_id) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchFavouriteAchievements()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Favourite achievement could not be added\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('Favourite achievement could not be added'));})
 }
 
 export const postFavouriteFact = (_id) => (dispatch) => {
@@ -637,8 +632,7 @@ export const postFavouriteFact = (_id) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchFavouriteFacts()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Favourite fact could not be added\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('Please Login to add post in favourite list'));})
 }
 
 export const postFavouriteTheory = (_id) => (dispatch) => {
@@ -672,8 +666,7 @@ export const postFavouriteTheory = (_id) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchFavouriteTheories()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Favourite Theory could not be added\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('Please Login to add post in favourite list'));})
 }
 
 export const deleteFavouriteAchievement = (_id) => (dispatch) => {
@@ -707,8 +700,7 @@ export const deleteFavouriteAchievement = (_id) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchFavouriteAchievements()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Favourite achievement could not be removed from your list of favourates\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('Favourite achievement could not be removed from your list of favourites'));})
 }
 
 export const deleteFavouriteFact = (_id) => (dispatch) => {
@@ -742,8 +734,7 @@ export const deleteFavouriteFact = (_id) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchFavouriteFacts()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Favourite fact could not be removed from your list of favourates\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('Favourite fact could not be removed from your list of favourites'));})
 }
 
 export const deleteFavouriteTheory = (_id) => (dispatch) => {
@@ -777,8 +768,7 @@ export const deleteFavouriteTheory = (_id) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchFavouriteTheories(response)))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Favourite theory could not be removed from your list of favourates\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('Favourite theory could not be removed from your list of favourites'));})
 }
 
 export const postAchievementComment = (comment,PID,CID) => (dispatch) => {
@@ -812,8 +802,7 @@ export const postAchievementComment = (comment,PID,CID) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchAchievements()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Your comment could not be posted\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('Please LOGIN to add comment'));})
 }
 
 export const deleteAchievementComment = (PID,CID) => (dispatch) => {
@@ -843,8 +832,7 @@ export const deleteAchievementComment = (PID,CID) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchAchievements()))
-    .catch(error => { console.log('DELETE comments ', error.message);
-        alert('Error: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('You are not authourized to remove this comment'));})
 }
 
 export const postFactComment = (comment,PID,CID) => (dispatch) => {
@@ -878,8 +866,7 @@ export const postFactComment = (comment,PID,CID) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchFacts()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Your comment could not be posted\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('Please LOGIN to add comment'));})
 }
 
 export const deleteFactComment = (PID,CID) => (dispatch) => {
@@ -909,8 +896,7 @@ export const deleteFactComment = (PID,CID) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchFacts()))
-    .catch(error => { console.log('DELETE comments ', error.message);
-        alert('Error: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('You are not authourized to remove this comment'));})
 }
 
 export const postTheoryComment = (comment,PID,CID) => (dispatch) => {
@@ -944,8 +930,7 @@ export const postTheoryComment = (comment,PID,CID) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchTheories()))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Your comment could not be posted\nError: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('Please LOGIN to add comment'));})
 }
 
 export const deleteTheoryComment = (PID,CID) => (dispatch) => {
@@ -975,8 +960,7 @@ export const deleteTheoryComment = (PID,CID) => (dispatch) => {
         throw errmess;
     })
     .then(response => dispatch(fetchTheories()))
-    .catch(error => { console.log('DELETE comments ', error.message);
-        alert('Error: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('You are not authourized to remove this comment'));})
 }
 
 export const postChangeUsername = (newUsername) => (dispatch) => {
@@ -1050,7 +1034,7 @@ export const postImage=(formadata,func,information,credits,title)=>(dispatch)=>{
         else
         dispatch(postTheory(response.file,information,credits,title));
     })
-    .catch(error => {alert('Error: '+ error.message);
+    .catch(error => {dispatch(ErrorMess('Error: '+ error.message));
         dispatch(Set_default());
     })
 }
@@ -1182,6 +1166,5 @@ export const signupUser = (username,password,firstname,lastname) => (dispatch) =
     })
     .then(response => response.json())
     .then(response =>  alert(response.status))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Error: '+ error.message); })
+    .catch(error => { dispatch(ErrorMess('Username Already Taken'));})
 };

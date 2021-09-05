@@ -29,6 +29,7 @@ const mapStateToProps = state => {
         favouriteAchievements: state.favouriteAchievements,
         favouriteFacts:state.favouriteFacts,
         favouriteTheories:state.favouriteTheories,
+        errormess:state.errorMess,
         auth: state.auth,
         image:state.image
     }
@@ -102,6 +103,7 @@ const mapDispatchToProps = (dispatch) => ({
             favorite={this.props.favouriteAchievements.favourite_achievements}
             postFavourite={this.props.postFavouriteAchievement}
             deleteFavourite={this.props.deleteFavouriteAchievement}
+            errormess={this.props.errormess.errMess}
             place={'Space-Achievement'}
             />
         );
@@ -120,6 +122,7 @@ const mapDispatchToProps = (dispatch) => ({
             deleteData={this.props.deleteFact}
             isLoading={this.props.facts.isLoading}
             errMess={this.props.facts.errMess}
+            errormess={this.props.errormess.errMess}
             postComment={this.props.postFactComment}
             deleteComment={this.props.deleteFactComment}
             favorite={this.props.favouriteFacts.favourite_facts}
@@ -143,6 +146,7 @@ const mapDispatchToProps = (dispatch) => ({
             deleteData={this.props.deleteTheory}
             isLoading={this.props.theories.isLoading}
             errMess={this.props.theories.errMess}
+            errormess={this.props.errormess.errMess}
             postComment={this.props.postTheoryComment}
             deleteComment={this.props.deleteTheoryComment}
             favorite={this.props.favouriteTheories.favourite_theories}
@@ -192,6 +196,7 @@ const mapDispatchToProps = (dispatch) => ({
             titl={"Space Achievement"}
             postImage={this.props.postImage} 
             image={this.props.image} 
+            errormess={this.props.errormess.errMess}
             Set_default={this.props.Set_default}
             />
         );
@@ -207,6 +212,7 @@ const mapDispatchToProps = (dispatch) => ({
             titl={"Interesting Fact"}
             postImage={this.props.postImage} 
             image={this.props.image} 
+            errormess={this.props.errormess.errMess}
             Set_default={this.props.Set_default}
             />
         );
@@ -222,6 +228,7 @@ const mapDispatchToProps = (dispatch) => ({
             titl={"Facinating Theory"}
             postImage={this.props.postImage} 
             image={this.props.image} 
+            errormess={this.props.errormess.errMess}
             Set_default={this.props.Set_default}
             />
         );

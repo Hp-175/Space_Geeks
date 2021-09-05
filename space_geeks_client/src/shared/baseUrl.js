@@ -1,1 +1,2 @@
-export const baseUrl = 'https://space-geeks-server.herokuapp.com/';
+export const baseUrl = 'http://localhost:3000/';
+//https://space-geeks-server.herokuapp.com/

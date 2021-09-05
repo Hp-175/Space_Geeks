@@ -5,6 +5,7 @@ import {Theories} from './Theories';
 import {FavouriteAchievements} from './FavouriteAchievements';
 import {FavouriteFacts} from './FavouriteFacts';
 import {FavouriteTheories} from './FavouriteTheories';
+import {ErrorMess} from './ErrorMess';
 import {Auth} from './Auth';
 import {Image} from './Image';
 import thunk from 'redux-thunk';
@@ -19,6 +20,7 @@ export const ConfigureStore = () => {
             favouriteAchievements: FavouriteAchievements,
             favouriteFacts:FavouriteFacts,
             favouriteTheories:FavouriteTheories,
+            errorMess:ErrorMess,
             auth: Auth,
             image:Image
         }),

@@ -110,6 +110,16 @@
   .link:link{
     text-decoration: none;
   }
+  .ErrorMess{
+    border-radius: 4px;
+    margin-top: 10px;
+    padding: 8px;
+    text-align: center;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #cababa;
+    background: rgba(212, 54, 51, 0.3)
+  }
   .dropdown-content {
     position: absolute;
     margin-top: 3px;
@@ -155,6 +165,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
+  
   .dbtnH:hover+.dropdownH{
     display: block;
   }
@@ -221,6 +232,7 @@
     color:white;
     cursor: pointer;
     padding: 3px 9px;
+    margin-left: 10px;
     border-radius: 3px;
   }
   .signup:hover{
@@ -237,6 +249,7 @@
     cursor: pointer;
     padding: 3px 9px;
     border-radius: 3px;
+    margin-left: 10px;
   }
   .logout:hover{
     background-color:#a80d1f ;
@@ -276,6 +289,18 @@
   }
   .out{
     min-height: calc(100vh - 128px);
+  }
+  .alignCenter{
+    text-align: center;
+    position: absolute;
+    margin-top: 40px;
+  }
+  .cross{
+    color: #bd9398;
+  }
+  .cross:hover{
+    color: #973636;
+    cursor: pointer;
   }
 @media only screen and (min-width : 320px) {
     .card {
@@ -341,6 +366,7 @@
       .fixed-bg {
         min-height: 600px;
       }
+      
     }
 @media only screen and (min-width :655px)
 {
@@ -348,6 +374,16 @@
     position:absolute;
     margin-left: 89%;
     margin-top: 0%;
+  }
+}
+
+@media only screen and (min-width :580px)
+{
+  .alignCenter{
+    text-align: center;
+    position: absolute;
+    right: 10px;
+    margin-top: 0px;
   }
 }
 @media only screen and (min-width :1190px)
@@ -358,6 +394,13 @@
   }
 }
 @media only screen and (min-width :768px) {
+    .alignCenter{
+      text-align: center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      padding: 0px 30%;
+    }
     .card {
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         transition: 0.3s;
@@ -379,6 +422,7 @@
         margin-top: 3%;
         position: relative;
       }
+      
 }
 @media only screen and (min-width :1025px) {
   .card {
