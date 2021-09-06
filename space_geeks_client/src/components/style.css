@@ -302,6 +302,7 @@
     color: #973636;
     cursor: pointer;
   }
+  
 @media only screen and (min-width : 320px) {
     .card {
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -339,6 +340,20 @@
       }
       .fixed-bg {
         min-height: 400px;
+      }
+      .alignCenter2{
+        text-align: center;
+        margin-left: 1%;
+      }
+      .ErrorMess2{
+        border-radius: 4px;
+        padding: 9px;
+        text-align: center;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+        color: #faefef;
+        background: rgba(145, 57, 55, 0.8);
+        margin-bottom: 10px;
       }
 }
 
@@ -422,7 +437,21 @@
         margin-top: 3%;
         position: relative;
       }
-      
+      .alignCenter2{
+        text-align: center;
+        margin-left: 20%;
+      }
+      .ErrorMess2{
+        border-radius: 4px;
+        padding: 9px;
+        text-align: center;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+        color: #faefef;
+        max-width: 60%;
+        background: rgba(145, 57, 55, 0.8);
+        margin-bottom: 10px;
+      }
 }
 @media only screen and (min-width :1025px) {
   .card {

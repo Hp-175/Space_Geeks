@@ -13,7 +13,7 @@ import {fetchAchievements,fetchFacts,fetchTheories,
     postTheoryComment,deleteFactComment,
     deleteAchievementComment,deleteTheoryComment,
     postChangeUsername,loginUser,logoutUser,
-    signupUser,postImage,Set_default} from '../redux/ActionCreators';
+    signupUser,postImage,ErrorMess,Set_default} from '../redux/ActionCreators';
 
 import { matchPath } from 'react-router'
 import Header from './HeaderComponent';
@@ -68,7 +68,8 @@ const mapDispatchToProps = (dispatch) => ({
     signupUser: (username,password,firstname,lastname) => dispatch(signupUser(username,password,firstname,lastname)),
     postChangeUsername: (newUsername) => dispatch(postChangeUsername(newUsername)),
     postImage: (formadata,func,info,cred,title) => dispatch(postImage(formadata,func,info,cred,title)),
-    Set_default:()=>dispatch(Set_default())
+    Set_default:()=>dispatch(Set_default()),
+    ErrorMess:(message)=>dispatch(ErrorMess(message))
   });
 
   class Main extends Component {
@@ -104,6 +105,7 @@ const mapDispatchToProps = (dispatch) => ({
             postFavourite={this.props.postFavouriteAchievement}
             deleteFavourite={this.props.deleteFavouriteAchievement}
             errormess={this.props.errormess.errMess}
+            cem={this.props.ErrorMess}
             place={'Space-Achievement'}
             />
         );
@@ -123,6 +125,7 @@ const mapDispatchToProps = (dispatch) => ({
             isLoading={this.props.facts.isLoading}
             errMess={this.props.facts.errMess}
             errormess={this.props.errormess.errMess}
+            cem={this.props.ErrorMess}
             postComment={this.props.postFactComment}
             deleteComment={this.props.deleteFactComment}
             favorite={this.props.favouriteFacts.favourite_facts}
@@ -147,6 +150,7 @@ const mapDispatchToProps = (dispatch) => ({
             isLoading={this.props.theories.isLoading}
             errMess={this.props.theories.errMess}
             errormess={this.props.errormess.errMess}
+            cem={this.props.ErrorMess}
             postComment={this.props.postTheoryComment}
             deleteComment={this.props.deleteTheoryComment}
             favorite={this.props.favouriteTheories.favourite_theories}
@@ -197,6 +201,7 @@ const mapDispatchToProps = (dispatch) => ({
             postImage={this.props.postImage} 
             image={this.props.image} 
             errormess={this.props.errormess.errMess}
+            cem={this.props.ErrorMess}
             Set_default={this.props.Set_default}
             />
         );
@@ -213,6 +218,7 @@ const mapDispatchToProps = (dispatch) => ({
             postImage={this.props.postImage} 
             image={this.props.image} 
             errormess={this.props.errormess.errMess}
+            cem={this.props.ErrorMess}
             Set_default={this.props.Set_default}
             />
         );
@@ -229,6 +235,7 @@ const mapDispatchToProps = (dispatch) => ({
             postImage={this.props.postImage} 
             image={this.props.image} 
             errormess={this.props.errormess.errMess}
+            cem={this.props.ErrorMess}
             Set_default={this.props.Set_default}
             />
         );

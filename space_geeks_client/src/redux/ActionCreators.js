@@ -1034,7 +1034,11 @@ export const postImage=(formadata,func,information,credits,title)=>(dispatch)=>{
         else
         dispatch(postTheory(response.file,information,credits,title));
     })
-    .catch(error => {dispatch(ErrorMess('Error: '+ error.message));
+    .catch(error => {
+        if(error.message=="Error 401: Unauthorized")
+        dispatch(ErrorMess('Please LOGIN to post information'));
+        else
+        dispatch(ErrorMess('Please upload image with valid image extension.'));
         dispatch(Set_default());
     })
 }

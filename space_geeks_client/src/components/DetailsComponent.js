@@ -129,7 +129,6 @@ class RenderComments extends Component {
         {
             return(
                 <div>
-                    
                     <ul className="list-unstyled">
                         {this.props.comments.map((comment) => {
                             return (
@@ -219,6 +218,9 @@ class CommentForm extends Component {
 
 const Details = (props) => {
 
+var toggleError=()=>{
+    props.cem("0");
+}
 if (props.isLoading) {
     return(
         <div className="container">
@@ -237,7 +239,7 @@ else if (props.errMess) {
         </div>
     );
 }
-else if (props.data != null)        
+else if (props.data != null)
     return (
         <div className="page">
             <div className="row">
@@ -246,10 +248,14 @@ else if (props.data != null)
                     <BreadcrumbItem active>{props.data.title}</BreadcrumbItem>
                 </Breadcrumb>
                 <div className="col-12">
+                    {props.errormess!=="0"? <div className="alignCenter2"><div className="ErrorMess2">{props.errormess}{'   '}<span className="fa fa-remove cross" onClick={toggleError}/></div></div>:null}
+                </div>
+                <div className="col-12">
                     <h3 className="Dtitle">{props.data.title}</h3>
                     <hr />
                 </div>
             </div>
+            
             <div>
                 <RenderData data={props.data}
                     favorite={props.favorite}
