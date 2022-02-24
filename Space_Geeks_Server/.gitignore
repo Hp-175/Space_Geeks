@@ -4,3 +4,4 @@ bin/cert.csr
 bin/certificate.pem
 bin/private.key
 yarn.lock
+package-lock.json
